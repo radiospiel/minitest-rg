@@ -1,5 +1,6 @@
 require "rubygems"
 require "minitest/unit"
+require File.dirname(__FILE__) + "/string_ext"
 require File.dirname(__FILE__) + "/module_ext"
 require File.dirname(__FILE__) + "/dlog_ext"
 

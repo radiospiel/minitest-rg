@@ -44,19 +44,8 @@ module Fixnum::Etest
   end
 end
 
-module Etest::Assertions::Etest
-  
-  #
-  # this actually tests the existance of an assertion and one successful
-  # assertion, nothing less, and nothing more...
-  def test_assertions
-    assert_respond_to "nsn", :upcase
-    assert respond_to?(:assert_invalid)
-    assert respond_to?(:assert_valid)
-  end
-end
-
 $etests_did_run = false
+Etest.reload
 Etest.auto_run
 
 unless $etests_did_run
