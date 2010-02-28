@@ -1,6 +1,7 @@
 Manifest
 Rakefile
-etest.gemspec
+VERSION
+gem.yml
 init.rb
 lib/dlog_ext.rb
 lib/etest.rb
@@ -10,4 +11,5 @@ lib/module_ext.rb
 lib/string_ext.rb
 script/console
 script/rebuild
+tasks/echoe.rake
 test/test.rb

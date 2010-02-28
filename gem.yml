@@ -1,0 +1,12 @@
+gem:
+  description: Embedded testing
+  url: http://github.com/pboy/etest  
+  author: pboy
+  email: eno-pboy@open-lab.org  
+  ignore_pattern:
+    - "tmp/*"
+    - "**/.*"
+  runtime_dependencies:
+    - nokogiri
+    - htmlentities
+    - rdiscount
