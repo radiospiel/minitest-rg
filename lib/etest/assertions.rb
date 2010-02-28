@@ -82,6 +82,12 @@ module Etest::Assertions
       assert $!.is_a?(klass), "Should raise a #{klass} exception, but raised a #{$!.class.name} exception"
     end
   end
+  
+  def assert_file_exist(*paths)
+    paths.flatten.each do |path|
+      assert File.exist?(path), "Missing file #{path}"
+    end
+  end
 end
 
 
@@ -101,6 +107,10 @@ module Etest::Assertions::Etest
     assert_raises_kind_of RuntimeError do 
       raise TestError
     end
+  end
+  
+  def test_assert_file_exist
+    assert_file_exist __FILE__
   end
   
   def test_xml

@@ -6,7 +6,7 @@ gem:
   ignore_pattern:
     - "tmp/*"
     - "**/.*"
-  runtime_dependencies:
-    - nokogiri
-    - htmlentities
-    - rdiscount
+  # runtime_dependencies:
+  #   - nokogiri
+  #   - htmlentities
+  #   - rdiscount
