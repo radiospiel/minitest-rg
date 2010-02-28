@@ -5,7 +5,7 @@ task :test do
 end
 
 task :rcov do
-  sh "cd test; rcov -o ../coverage -x ruby/.*/gems test.rb"
+  sh "cd test; rcov -o ../coverage -x ruby/.*/gems -x ^test.rb test.rb"
 end
 
 task :rdoc do

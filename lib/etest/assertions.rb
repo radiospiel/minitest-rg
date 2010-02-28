@@ -45,14 +45,28 @@ module Etest::Assertions
   #
   #
   def assert_valid_xml(*args)
-    if args.empty?
-      args.push @response.body
-    end
+    args.push @response.body if args.empty?
     
-    require "libxml"
-
     args.each do |xml|
-      assert LibXML::XML::Document.io(StringIO.new(xml))
+      assert xml_valid?(xml), "XML is not valid: #{xml}"
+    end
+  end
+
+  def xml_valid?(xml)
+    require "libxml"
+    LibXML::XML::Error.reset_handler
+    
+    LibXML::XML::Document.io StringIO.new(xml)
+    true
+  rescue LibXML::XML::Error
+    false
+  end
+  
+  def assert_invalid_xml(*args)
+    args.push @response.body if args.empty?
+    
+    args.each do |xml|
+      assert !xml_valid?(xml), "XML should not be valid: #{xml}"
     end
   end
 
@@ -67,5 +81,38 @@ module Etest::Assertions
     rescue klass
       assert $!.is_a?(klass), "Should raise a #{klass} exception, but raised a #{$!.class.name} exception"
     end
+  end
+end
+
+
+module Etest::Assertions::Etest
+  #
+  # this actually tests the existance of an assertion and one successful
+  # assertion, nothing less, and nothing more...
+  def test_asserts
+    assert_respond_to "nsn", :upcase
+    assert respond_to?(:assert_invalid)
+    assert respond_to?(:assert_valid)
+  end
+
+  class TestError < RuntimeError; end
+  
+  def test_assert_raises_kind_of
+    assert_raises_kind_of RuntimeError do 
+      raise TestError
+    end
+  end
+  
+  def test_xml
+    assert_valid_xml <<-XML
+<root>
+<p> lkhj </p>
+</root>
+XML
+  
+    assert_invalid_xml <<-XML
+<root>
+<p> lkhj </p>
+XML
   end
 end

@@ -42,7 +42,10 @@ module Fixnum::Etest
     $etests_did_run = true
     assert true
   end
+end
 
+module Etest::Assertions::Etest
+  
   #
   # this actually tests the existance of an assertion and one successful
   # assertion, nothing less, and nothing more...
