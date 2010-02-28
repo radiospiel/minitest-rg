@@ -12,7 +12,6 @@ require File.dirname(__FILE__) + "/dlog_ext"
 module Etest
 end
 
-
 require File.dirname(__FILE__) + "/etest/assertions"
 
 class MiniTest::Unit::TestCase

@@ -52,3 +52,14 @@ unless $etests_did_run
   STDERR.puts "Something's wrong with etests :(" 
   exit 1
 end
+
+STDERR.puts "===== Reloading and rerunning one test"
+
+$etests_did_run = false
+
+Fixnum.etest
+
+unless $etests_did_run
+  STDERR.puts "Something's wrong with etests :(" 
+  exit 1
+end

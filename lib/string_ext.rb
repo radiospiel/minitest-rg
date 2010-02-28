@@ -14,7 +14,7 @@ class String
 end
 
 module String::Etest
-  def test_underscore
+  def test_camelize
     assert_equal "x", "X".underscore
     assert_equal "xa_la_nder", "XaLaNder".underscore
   end

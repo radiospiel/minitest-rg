@@ -5,7 +5,7 @@ class Module
   # reloads the module, and runs the module's etests.
   def etest
     reload if respond_to?(:reload)
-    Etest.run self
+    ::Etest.run self.const_get("Etest")
   end
 
   #
@@ -49,7 +49,7 @@ class Module
     def self.reload_file(file)
       begin
         load(file) && file
-      rescue MissingSourceFile
+      rescue LoadError
         nfile = file.gsub(/\/[^\/]+\.rb/, ".rb")
         nfile != file && reload_file(nfile)
       end
