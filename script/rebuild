@@ -1,0 +1,7 @@
+#!/bin/sh
+rake default build_gemspec package || exit 1 
+echo "============================================="
+echo "I built the gem for you. To upload, run "
+echo
+echo "gem push $(ls -d pkg/*.gem | tail -n 1)"
+
