@@ -9,6 +9,7 @@ require '../init'
 require 'logger'
 require 'rubygems'
 require 'ruby-debug'
+require 'fileutils'
 
 LOGFILE = "log/test.log"
 SQLITE_FILE = ":memory:"
