@@ -4,7 +4,7 @@ Dir.chdir(DIRNAME)
 
 #
 # initialize the gem
-require '../init'
+require '../lib/minitest-rg'
 
 require 'logger'
 require 'rubygems'

@@ -1,3 +1,5 @@
+$: << "#{File.dirname(__FILE__)}"
+
 require "rubygems"
 require "minitest/unit"
 require File.dirname(__FILE__) + "/string_ext"
@@ -9,6 +11,13 @@ require File.dirname(__FILE__) + "/dlog_ext"
 #
 # The Etest module contains methods to run etests.
 # 
+begin
+  require "etest"
+rescue LoadError
+end
+
+require File.dirname(__FILE__) + "/etest_ext" if defined?(Etest)
+
 module Etest
 end
 
@@ -64,3 +73,4 @@ module Etest
     klass
   end
 end
+
