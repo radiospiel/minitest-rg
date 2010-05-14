@@ -2,11 +2,11 @@ Manifest
 Rakefile
 VERSION
 gem.yml
-init.rb
 lib/dlog_ext.rb
-lib/etest.rb
 lib/etest/assertions.rb
 lib/etest/grep.rb
+lib/etest_ext.rb
+lib/minitest-rg.rb
 lib/module_ext.rb
 lib/string_ext.rb
 script/console
