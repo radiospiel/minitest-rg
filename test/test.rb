@@ -1,1 +1,2 @@
-puts "Dummy tests..."
+#!/usr/bin/env ruby
+puts "Test dummy"
