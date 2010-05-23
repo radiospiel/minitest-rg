@@ -2,14 +2,6 @@ Manifest
 Rakefile
 VERSION
 gem.yml
-init.rb
-lib/dlog_ext.rb
-lib/etest.rb
-lib/etest/assertions.rb
-lib/etest/grep.rb
-lib/module_ext.rb
-lib/string_ext.rb
-script/console
-script/rebuild
+lib/minitest-rg.rb
 tasks/echoe.rake
 test/test.rb

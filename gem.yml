@@ -1,6 +1,6 @@
 gem:
-  description: Embedded testing
-  url: http://github.com/pboy/etest  
+  description: redgreen minitest
+  url: http://github.com/pboy/minitest-rg
   author: pboy
   email: eno-pboy@open-lab.org  
   ignore_pattern:
