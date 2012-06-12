@@ -41,10 +41,13 @@ class MiniTest::Unit
 
   def puke(klass, meth, e)
     r = original_puke(klass, meth, e)
-    report = @report.pop
-    lines = report.split(/\n/)
-    lines[0] = MiniTest.colored(r, lines[0])
-    @report << lines.join("\n")
+    lines = []
+    if 0 < @report.length
+      report = @report.pop
+      lines = report.split(/\n/)
+      lines[0] = MiniTest.colored(r, lines[0])
+      @report << lines.join("\n")
+    end
     r
   end
 end
