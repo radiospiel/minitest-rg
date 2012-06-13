@@ -1,6 +1,8 @@
 #
 # GEM settings
 #
+require "yaml"
+
 GEM_ROOT = File.expand_path("#{File.dirname(__FILE__)}/..")
 if gem_config = YAML.load(File.read("#{GEM_ROOT}/gem.yml"))["gem"]
   require 'echoe'  
